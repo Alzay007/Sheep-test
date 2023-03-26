@@ -2,10 +2,12 @@
 
 Для того, щоб видалити або додати товар, необходно авторизуватись.
 На сайті реалізована проста реєстрація, після якої одразу буде перенаправлено на строніку аккаунту.
-![Screenshot_1](https://user-images.githubusercontent.com/108741138/227776762-6b634445-c104-4051-afcf-92037a35af41.png)
+
+![Screenshot_2](https://user-images.githubusercontent.com/108741138/227776909-11b8c4fe-97c8-4161-b4b8-e0763384a4b2.png)
 
 Кнопка для додавання товару знаходиться в особистому кабінеті.
 
+![Screenshot_1](https://user-images.githubusercontent.com/108741138/227776762-6b634445-c104-4051-afcf-92037a35af41.png)
 
 - [Demo link](https://main--chimerical-jelly-e48dd1.netlify.app/#/)
 
