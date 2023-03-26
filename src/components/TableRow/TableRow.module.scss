@@ -1,0 +1,21 @@
+@import '../../styles/main.scss';
+
+.table {
+  &__rating {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+  }
+
+  &__star {
+    background-image: url('../../assets/icons/star.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+
+    width: 15px;
+    height: 15px;
+  }
+}
