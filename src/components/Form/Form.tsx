@@ -1,6 +1,6 @@
-import { useState } from 'react';
 import { Button, FormGroup, TextField } from "@mui/material";
 import styles from './Form.module.scss';
+import useInput from '../../hooks/useInput';
 
 interface Props {
   action: string;
@@ -8,8 +8,8 @@ interface Props {
 }
 
 export const Form: React.FC<Props> = ({ action, handleClick }) => {
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
+  const email = useInput('');
+  const password = useInput('');
 
   return (
     <FormGroup className={styles.form}>
@@ -18,8 +18,7 @@ export const Form: React.FC<Props> = ({ action, handleClick }) => {
         name="email"
         placeholder="Email"
         autoComplete="off"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        {...email}
       />
 
       <TextField
@@ -27,14 +26,13 @@ export const Form: React.FC<Props> = ({ action, handleClick }) => {
         name="password"
         type="password"
         placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
+        {...password}
       />
 
       <Button
         className={styles.form__btn}
         variant={"outlined"}
-        onClick={() => handleClick(email, password)}
+        onClick={() => handleClick(email.value, password.value)}
       >
         {action}
       </Button>
