@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.scss';
-import { fetchGoods } from './features/reducers/actionCreators';
+// import { fetchGoods } from './features/reducers/actionCreators';
 import { Footer } from './components/Footer';
 import { Header, ROUTER } from './components/Header';
 import { AccountPage } from './pages/AccountPage';
@@ -8,16 +8,16 @@ import { HomePage } from './pages/HomePage';
 import { LoginPage } from './pages/LoginPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { SignUpPage } from './pages/SignUpPage';
-import { useEffect } from 'react';
-import { useAppDispatch } from './features/hooks/hooks';
+// import { useEffect } from 'react';
+// import { useAppDispatch } from './features/hooks/hooks';
 import { ProductDetailPage } from './pages/ProductDetailPage';
 
 function App() {
-  const dispatch = useAppDispatch();
+  // const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    dispatch(fetchGoods());
-  }, [dispatch])
+  // useEffect(() => {
+  //   dispatch(fetchGoods());
+  // }, [dispatch])
 
   return (
     <>

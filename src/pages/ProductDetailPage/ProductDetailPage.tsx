@@ -1,16 +1,21 @@
 import { Title } from '../../components/Title';
 import { Loader } from '../../components/Loader';
-import { useAppSelector } from '../../features/hooks/hooks';
+// import { useAppSelector } from '../../features/hooks/hooks';
 import styles from './ProductDetailPage.module.scss';
 import { useParams } from 'react-router-dom';
+import { productAPI } from '../../features/reducers/ProductService';
+import { Product } from '../../types/Product';
 
 export const ProductDetailPage = () => {
-  const { isLoading, products } = useAppSelector(state => state.productsReducer);
+  // const { isLoading, products } = useAppSelector(state => state.productsReducer);
+  const { data: products, isLoading } = productAPI.useFetchAllProductsQuery('');
   const { itemId } = useParams();
 
   const currentId = itemId ? itemId : 0;
 
-  const currentProduct = products.find(item => item.id === +currentId);
+  const goods = products?.products;
+
+  const currentProduct = goods && goods.find((item: Product) => item.id === +currentId);
 
   return (
     <div className={styles.detail}>
