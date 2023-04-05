@@ -1,6 +1,6 @@
 import styles from './HomePage.module.scss';
 
-import { useAppSelector } from '../../features/hooks/hooks';
+// import { useAppSelector } from '../../features/hooks/hooks';
 import { ProductList } from '../../components/ProductList/ProductList';
 import { useCallback, useState } from 'react';
 import { SearchBar } from '../../components/SearchField';
@@ -9,9 +9,13 @@ import { AuthSnackbar } from '../../components/AuthSnackBar';
 import { sortItems } from '../../helpers/sortFunc';
 import { SortType } from '../../types/SortType';
 import { SortField } from '../../components/SortField';
+import { productAPI } from '../../features/reducers/ProductService';
+import { Product } from '../../types/Product';
 
 export const HomePage = () => {
-  const { isLoading, products } = useAppSelector(state => state.productsReducer);
+  // const { isLoading, products } = useAppSelector(state => state.productsReducer);
+  const { data: products, isLoading } = productAPI.useFetchAllProductsQuery('');
+
   const [query, setQuery] = useState('');
   const [sortBy, setSortBy] = useState<SortType>(SortType.ALL);
 
@@ -24,11 +28,13 @@ export const HomePage = () => {
     setSortBy(value);
   };
 
-  const visibleList = products
-    .filter(product => product.title.toLowerCase().includes(query.toLowerCase())
+  const goods = products?.products;
+
+  const visibleList = goods && goods
+    .filter((product: Product) => product.title.toLowerCase().includes(query.toLowerCase())
       || product.category.toLowerCase().includes(query.toLowerCase()));
 
-  const sortedGoods = sortItems(visibleList, sortBy)
+  const sortedGoods = visibleList && sortItems(visibleList, sortBy)
 
   return (
     <div className={styles.home}>

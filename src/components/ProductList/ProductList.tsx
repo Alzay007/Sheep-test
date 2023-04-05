@@ -24,7 +24,7 @@ export const ProductList: React.FC<Props> = ({ productsList }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {productsList.map((product) => (
+          {productsList && productsList.map((product) => (
             <ProductTableRow key={product.id} product={product} />
           ))}
         </TableBody>
